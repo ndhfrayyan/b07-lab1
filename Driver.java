@@ -16,6 +16,11 @@ public static void main(String [] args) {
 		double h[] ={-5.0, -4.0, -3.0, 2.0, 1.0}; 
 		int i[] = {1, 3, 4, 2, 5};
 		Polynomial P3 = new Polynomial(h, i);
+		File fi = new File("testt.txt");
+		Polynomial P7 = new Polynomial(fi);
+		for(int k = 0; k < P7.pc.length; k++){
+			System.out.println(P7.pc[k] + "x" + P7.pw[k]);
+		}
 		// test add
 		Polynomial P5 = P2.add(P3);
 		System.out.println(P5.pc.length == 0);
