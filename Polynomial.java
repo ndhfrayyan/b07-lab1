@@ -28,8 +28,8 @@ public class Polynomial{
 			s = new String(Files.readAllBytes(Paths.get(p)));
 		}
 		catch(IOException e){
-            e.printStackTrace();
-        }
+	            e.printStackTrace();
+	        }
 		String sp[] = s.split("[+-]");
 		int len = sp.length;
 		pc = new double[len];
@@ -158,7 +158,7 @@ public class Polynomial{
 			Files.writeString(p, o, StandardCharsets.UTF_8);
 		}
 		catch(IOException e){
-            e.printStackTrace();
-        }
+	            e.printStackTrace();
+	        }
 	}
 }
