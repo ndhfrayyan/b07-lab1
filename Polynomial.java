@@ -47,7 +47,7 @@ public class Polynomial{
 		}
 		if(s.charAt(0) == '-') pc[0] *= -1;
 		int j = 1;
-		for(int i = 1; i < len; i++){
+		for(int i = 1; i < s.length; i++){
 			if(s.charAt(i) == '-'){
 				pc[j] *= -1;
 				j++;
