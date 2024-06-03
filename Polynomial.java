@@ -32,28 +32,31 @@ public class Polynomial{
 	    }
 		String sp[] = s.split("[+-]");
 		int len = sp.length;
+		if(len == 1 && sp[0].length() == 0) len = 0;
 		pc = new double[len];
 		pw = new int[len];
-		for(int i = 0; i < len; i++){
-			int idx = sp[i].indexOf('x');
-			if(idx == -1){
-				pc[i] = Double.parseDouble(sp[i]);
-				pw[i] = 0;
+		if(len != 0){
+			for(int i = 0; i < len; i++){
+				int idx = sp[i].indexOf('x');
+				if(idx == -1){
+					pc[i] = Double.parseDouble(sp[i]);
+					pw[i] = 0;
+				}
+				else{
+					pc[i] = Double.parseDouble(sp[i].substring(0, idx));
+					pw[i] = Integer.parseInt(sp[i].substring(idx + 1));
+				}
 			}
-			else{
-				pc[i] = Double.parseDouble(sp[i].substring(0, idx));
-				pw[i] = Integer.parseInt(sp[i].substring(idx + 1));
-			}
-		}
-		if(s.charAt(0) == '-') pc[0] *= -1;
-		int j = 1;
-		for(int i = 1; i < s.length(); i++){
-			if(s.charAt(i) == '-'){
-				pc[j] *= -1;
-				j++;
-			}
-			else if(s.charAt(i) == '+'){
-				j++;
+			if(s.charAt(0) == '-') pc[0] *= -1;
+			int j = 1;
+			for(int i = 1; i < s.length(); i++){
+				if(s.charAt(i) == '-'){
+					pc[j] *= -1;
+					j++;
+				}
+				else if(s.charAt(i) == '+'){
+					j++;
+				}
 			}
 		}
 	}
@@ -107,7 +110,9 @@ public class Polynomial{
 				idx++;
 			}
 		}
-		Polynomial ret = new Polynomial(rc, cw);
+		Polynomial ret;
+		if(cnt == 0) ret = new Polynomial();
+		else ret = new Polynomial(rc, cw);
 		return ret;
 	}
 	double evaluate(double d){
