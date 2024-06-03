@@ -28,8 +28,8 @@ public class Polynomial{
 			s = new String(Files.readAllBytes(Paths.get(p)));
 		}
 		catch(IOException e){
-	            e.printStackTrace();
-	        }
+	        e.printStackTrace();
+	    }
 		String sp[] = s.split("[+-]");
 		int len = sp.length;
 		pc = new double[len];
@@ -41,13 +41,14 @@ public class Polynomial{
 				pw[i] = 0;
 			}
 			else{
-				pc[i] = Double.parseDouble(sp[i].substring(0, idx - 1));
+				pc[i] = Double.parseDouble(sp[i].substring(0, idx));
 				pw[i] = Integer.parseInt(sp[i].substring(idx + 1));
 			}
+			System.out.println(idx);
 		}
 		if(s.charAt(0) == '-') pc[0] *= -1;
 		int j = 1;
-		for(int i = 1; i < s.length; i++){
+		for(int i = 1; i < s.length(); i++){
 			if(s.charAt(i) == '-'){
 				pc[j] *= -1;
 				j++;
@@ -158,7 +159,7 @@ public class Polynomial{
 			Files.writeString(p, o, StandardCharsets.UTF_8);
 		}
 		catch(IOException e){
-	            e.printStackTrace();
-	        }
+	        e.printStackTrace();
+	    }
 	}
 }
