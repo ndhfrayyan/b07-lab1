@@ -32,7 +32,12 @@ public class Polynomial{
 	    }
 		String sp[] = s.split("[+-]");
 		int len = sp.length;
-		if(len == 1 && sp[0].length() == 0) len = 0;
+		if(sp[0].length() == 0){
+			len--;
+			for(int i = 1; i < sp.length; i++){
+				sp[i - 1] = sp[i];
+			}
+		}
 		pc = new double[len];
 		pw = new int[len];
 		if(len != 0){
@@ -44,7 +49,7 @@ public class Polynomial{
 				}
 				else{
 					pc[i] = Double.parseDouble(sp[i].substring(0, idx));
-					pw[i] = Integer.parseInt(sp[i].substring(idx + 1));
+					pw[i] = Integer.parseInt(sp[i].substring(idx + 1, sp[i].length()));
 				}
 			}
 			if(s.charAt(0) == '-') pc[0] *= -1;

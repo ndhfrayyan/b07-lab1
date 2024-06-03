@@ -16,6 +16,9 @@ public static void main(String [] args) {
 		double h[] ={-5.0, -4.0, -3.0, 2.0, 1.0}; 
 		int i[] = {1, 3, 4, 2, 5};
 		Polynomial P3 = new Polynomial(h, i);
+		File fifi = new File("a.txt");
+		Polynomial P10 = new Polynomial(fifi);
+		System.out.println(P10.pc[0]);
 		File fi = new File("empty.txt");
 		Polynomial P7 = new Polynomial(fi);
 		for(int k = 0; k < P7.pc.length; k++){
