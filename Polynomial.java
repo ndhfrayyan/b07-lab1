@@ -44,7 +44,6 @@ public class Polynomial{
 				pc[i] = Double.parseDouble(sp[i].substring(0, idx));
 				pw[i] = Integer.parseInt(sp[i].substring(idx + 1));
 			}
-			System.out.println(idx);
 		}
 		if(s.charAt(0) == '-') pc[0] *= -1;
 		int j = 1;
