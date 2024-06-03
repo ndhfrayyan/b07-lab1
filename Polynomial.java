@@ -13,12 +13,18 @@ public class Polynomial{
 		pw = new int[0];
 	}
 	public Polynomial(double[] dd, int[] bb){
+		if(dd == null && bb == null){
+			pc = new double[0];
+			pw = new int[0];
+		}
+		else{
 		int len = dd.length;
-		pc = new double[len];
-		pw = new int[len];
-		for(int i = 0; i < len; i++){
-			pc[i] = dd[i];
-			pw[i] = bb[i];
+			pc = new double[len];
+			pw = new int[len];
+			for(int i = 0; i < len; i++){
+				pc[i] = dd[i];
+				pw[i] = bb[i];
+			}
 		}
 	}
 	public Polynomial(File f){
